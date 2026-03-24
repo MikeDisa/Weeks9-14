@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Codegym10 : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class Codegym10 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isMoving)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && !isMoving)
         {
             StartCoroutine(Driving(transform.position, EndPos));
         }
@@ -26,5 +27,26 @@ public class Codegym10 : MonoBehaviour
     IEnumerator Driving(Vector2 start, Vector2 end)
     {
         isMoving = true;
+
+        Vector2 direction = end - start;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle -90f);
+
+        float time = 0f;
+        float distance = Vector2.Distance(start, end);
+        float duration = distance / speed;
+
+        while (time < duration)
+        {
+            float t = time / duration;
+            transform.position = Vector2.Lerp(start, end, t);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = end;
+
+        isMoving = false;
     }
 }
