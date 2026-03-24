@@ -7,9 +7,12 @@ public class Codegym10 : MonoBehaviour
     public Vector2 StartPos = Vector2.zero;
     public Vector2 EndPos = Vector2.zero;
 
+    public int CurrentX = 0;
+    public int CurrentY = 0;
+
     public float speed = 2f;
 
-    bool isMoving = false;
+    //bool isMoving = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,14 +22,37 @@ public class Codegym10 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && !isMoving)
-        {
-            StartCoroutine(Driving(transform.position, EndPos));
-        }
+        //if (Keyboard.current.spaceKey.wasPressedThisFrame && !isMoving)
+        //{
+        //    StartCoroutine(Driving(transform.position, EndPos));
+        //}
+    }
+
+    public void Drive()
+    {
+        EndPos = new Vector2(CurrentX, CurrentY);
+        StartCoroutine(Driving(transform.position, EndPos));
+    }
+    
+    public void IncreaseRight()
+    {
+        CurrentX++;
+    }
+    public void IncreaseLeft()
+    {
+        CurrentX--;
+    }
+    public void IncreaseUp()
+    {
+        CurrentY++;
+    }
+    public void IncreaseDown()
+    {
+        CurrentY--;
     }
     IEnumerator Driving(Vector2 start, Vector2 end)
     {
-        isMoving = true;
+        //isMoving = true;
 
         Vector2 direction = end - start;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -47,6 +73,6 @@ public class Codegym10 : MonoBehaviour
 
         transform.position = end;
 
-        isMoving = false;
+        //isMoving = false;
     }
 }
