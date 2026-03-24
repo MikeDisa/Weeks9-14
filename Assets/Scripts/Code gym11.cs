@@ -7,6 +7,8 @@ public class Codegym11 : MonoBehaviour
     public AudioSource SFX;
     public AudioClip[] FootSounds;
     int Sound = 0;
+
+    public ParticleSystem particles;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,5 +26,11 @@ public class Codegym11 : MonoBehaviour
        
         SFX.clip = FootSounds[Sound];
         SFX.Play();
+    }
+
+    public void Dust()
+    {
+        particles.Emit(5);
+        particles.Stop();
     }
 }
