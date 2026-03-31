@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 public class Week12movement : MonoBehaviour
 {
     //public float speed = 5;
+    public Vector2 movementTemp;
     public Vector2 movement;
     public Vector2 PlayerPos;
 
-    public int t = 0;
+    public float t = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,16 +21,25 @@ public class Week12movement : MonoBehaviour
     void Update()
     {
 
-        while (movement != PlayerPos)
+        if (movement != PlayerPos && movement != null)
         {
             transform.position = Vector2.Lerp(PlayerPos, movement, t);
 
-            t += (int)Time.deltaTime;
+            t += Time.deltaTime;
+           
         }
     }
 
+
      public void OnPoint(InputAction.CallbackContext context)
     {
-        movement = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+        movementTemp = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>());
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        PlayerPos = transform.position;
+        movement = movementTemp;
+        t = 0;
     }
 }
