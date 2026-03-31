@@ -10,6 +10,8 @@ public class Week12movement : MonoBehaviour
     public Vector2 movement;
     public Vector2 PlayerPos;
 
+    public Week12Tilechecker checker;
+
     public float t = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,8 +40,11 @@ public class Week12movement : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        PlayerPos = transform.position;
-        movement = movementTemp;
-        t = 0;
+        if (checker != null && !checker.Grass)
+        {
+            PlayerPos = transform.position;
+            movement = movementTemp;
+            t = 0;
+        }
     }
 }
