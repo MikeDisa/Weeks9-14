@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class Week12Tilechecker : MonoBehaviour
@@ -26,7 +27,13 @@ public class Week12Tilechecker : MonoBehaviour
 //fuction that gets tile data on click
     public void grassCheck()
     {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3Int cellPos = tilemap.WorldToCell(mousePos);
+        Vector3 pos = tilemap.GetCellCenterWorld(cellPos);
 
+        tempTile = (Tile)tilemap.GetTile(cellPos);
+
+        Grass = false;
         //for loop to check clicked tile vs array
         for (int i = 0; i < grass.Length; i++)
         {
