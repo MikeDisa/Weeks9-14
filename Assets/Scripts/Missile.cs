@@ -10,7 +10,7 @@ public class Missile : MonoBehaviour
     public SpriteRenderer mySpriteRenderer;
 
     Vector2 direction;
-    float t = 5f;
+    float speed = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +23,7 @@ public class Missile : MonoBehaviour
     void Update()
     {
 
-        Vector2 newPosition = (Vector2)transform.position + direction * t * Time.deltaTime;
+        Vector2 newPosition = (Vector2)transform.position + direction * speed * Time.deltaTime;
         transform.position = newPosition;
 
         if(player == null || playerRenderer == null || mySpriteRenderer == null)
