@@ -229,12 +229,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   hitPoints: 3
+  block: 1
   speed: 5
   movement: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
-  PlayerShotPrefab: {fileID: 0}
-  ufo: {fileID: 0}
-  UfoRenderer: {fileID: 0}
+  PlayerShotPrefab: {fileID: 8981275673458550995, guid: b072310e772ea3747bf98096a27c6ea1, type: 3}
+  ufo: {fileID: 762449318}
+  UfoRenderer: {fileID: 762449316}
 --- !u!114 &395993077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,13 +283,13 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 395993076}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -301,7 +302,19 @@ MonoBehaviour:
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 554219055}
+        m_TargetAssemblyTypeName: Shieldfunction, Assembly-CSharp
+        m_MethodName: OnShield
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 27c5f898-bc57-4ee1-8800-db469aca5fe3
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
@@ -341,7 +354,19 @@ MonoBehaviour:
     m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
     m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 554219055}
+        m_TargetAssemblyTypeName: Shieldfunction, Assembly-CSharp
+        m_MethodName: OnShield
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 44b200b1-1557-4083-816c-b22cbdf77ddf
     m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
   - m_PersistentCalls:
@@ -469,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e4128bb4a5f4342aa95caf29bc08f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shieldfunction
+  player: {fileID: 0}
 --- !u!1 &762449315
 GameObject:
   m_ObjectHideFlags: 0

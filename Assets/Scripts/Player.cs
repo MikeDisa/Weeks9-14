@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public int hitPoints = 3;
-    int block = 1;
+    public int block = 1;
 
     public float speed = 5;
     public Vector2 movement;
@@ -64,8 +64,8 @@ public class Player : MonoBehaviour
                 Debug.LogWarning("Projectile prefab or Ufo references missing.");
                 return;
             }
-
-            GameObject newProjectile = Instantiate(PlayerShotPrefab, currentPos, Quaternion.identity);
+            Vector2 offset = new Vector2(currentPos.x+1,currentPos.y+3);
+            GameObject newProjectile = Instantiate(PlayerShotPrefab, offset, Quaternion.identity);
 
             // Get the projectile script from the spawned prefab
             PlayerShot shotScript = newProjectile.GetComponent<PlayerShot>();
