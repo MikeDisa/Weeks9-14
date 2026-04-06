@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public Vector2 movement;
 
     public Vector2 currentPos;
+
+    public GameObject PlayerShotPrefab;
+    public UFO ufo;
+    public SpriteRenderer UfoRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,6 +52,30 @@ public class Player : MonoBehaviour
         if (hitPoints == 0)
         {
             Debug.Log("hit");
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            if (PlayerShotPrefab == null || ufo == null || UfoRenderer == null)
+            {
+                Debug.LogWarning("Projectile prefab or Ufo references missing.");
+                return;
+            }
+
+            GameObject newProjectile = Instantiate(PlayerShotPrefab, currentPos, Quaternion.identity);
+
+            // Get the projectile script from the spawned prefab
+            PlayerShot shotScript = newProjectile.GetComponent<PlayerShot>();
+
+            if (shotScript != null)
+            {
+                shotScript.ufo = ufo;
+                shotScript.ufoRenderer = UfoRenderer;
+
+            }
         }
     }
 }

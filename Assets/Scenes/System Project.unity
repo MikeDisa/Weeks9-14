@@ -232,6 +232,9 @@ MonoBehaviour:
   speed: 5
   movement: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
+  PlayerShotPrefab: {fileID: 0}
+  ufo: {fileID: 0}
+  UfoRenderer: {fileID: 0}
 --- !u!114 &395993077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +281,19 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
