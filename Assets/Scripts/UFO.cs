@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using static Unity.Collections.AllocatorManager;
 
 public class UFO : MonoBehaviour
 {
@@ -57,9 +55,8 @@ public class UFO : MonoBehaviour
             Debug.LogWarning("Projectile prefab or player references missing.");
             return;
         }
-
-        // Use the player's current X position at the moment of spawn
-        Vector2 spawnPosition = new Vector2(player.transform.position.x, 5);
+        float randomX = UnityEngine.Random.Range(-11f, 11f);
+        Vector2 spawnPosition = new Vector2(randomX, 5f);
 
         GameObject newProjectile = Instantiate(BulletPrefab, spawnPosition, Quaternion.identity);
 
@@ -77,7 +74,8 @@ public class UFO : MonoBehaviour
         while (gameOn)
         {
             SpawnProjectile();
-
+            Debug.Log("Spawn Pos X"+ playerRenderer.bounds.center.x);
+            Debug.Log("Player Pos X"+ playerRenderer.transform.position.x);
             yield return new WaitForSeconds(3);
         }
     }
@@ -91,7 +89,8 @@ public class UFO : MonoBehaviour
         }
 
         // Use the player's current X position at the moment of spawn
-        Vector2 spawnPosition = new Vector2(player.currentPos.x, 5);
+        Vector2 spawnPosition = new Vector2(playerRenderer.bounds.center.x, 5f);
+        //Vector2 spawnPosition = new Vector2(player.currentPos.x, 5);
 
         GameObject newProjectile = Instantiate(MissilePrefab, spawnPosition, Quaternion.identity);
 

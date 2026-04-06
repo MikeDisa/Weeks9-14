@@ -17,6 +17,8 @@ public class Missile : MonoBehaviour
         mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         direction = Vector2.down;
+
+        Debug.Log("Missile Pos" + transform.position);
     }
 
     // Update is called once per frame
@@ -36,11 +38,13 @@ public class Missile : MonoBehaviour
         {
             Debug.Log("hit");
             player.DamagePlayer(3);
+            Debug.Log("Missile end Pos" + transform.position);
             Destroy(gameObject);
         }
 
         if (transform.position.y < -8)
         {
+            Debug.Log("Missile end Pos" + transform.position);
             Destroy(gameObject);
         }
     }

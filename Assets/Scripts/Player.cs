@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentPos = transform.position;
+
         transform.position += new Vector3(movement.x * speed * Time.deltaTime, 0f,0f);
 
         if (transform.position.x <= -11.55f)
