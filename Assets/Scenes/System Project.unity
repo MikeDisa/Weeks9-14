@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   hitPoints: 3
   block: 1
+  fireCooldown: 0.3
   speed: 5
   movement: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
@@ -238,6 +239,9 @@ MonoBehaviour:
   ufo: {fileID: 762449318}
   UfoRenderer: {fileID: 762449316}
   shield: {fileID: 554219055}
+  onAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &395993077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,11 +609,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464c59b7351ab354a85a9b90a79b7e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UFO
+  hitPoints: 12
   gameOn: 1
   BulletPrefab: {fileID: 6545014377366788281, guid: 924a0b19968ba6e479b979f9f363b072, type: 3}
   MissilePrefab: {fileID: 8626983473034242390, guid: 53d029612aab4364e997772d5919b01b, type: 3}
   player: {fileID: 395993076}
   playerRenderer: {fileID: 395993074}
+  spriteRenderer: {fileID: 1135796820}
+  Iframe: 2
+  flashInterval: 0.1
 --- !u!1 &906176868
 GameObject:
   m_ObjectHideFlags: 0

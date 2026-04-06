@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int hitPoints = 3;
     public int block = 1;
 
-    public float fireCooldown = 0.3f;
+    public float fireCooldown = 1.5f;
     float nextFireTime = 0f;
 
     public float speed = 5;

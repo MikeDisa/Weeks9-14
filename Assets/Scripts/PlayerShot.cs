@@ -8,7 +8,7 @@ public class PlayerShot : MonoBehaviour
     public SpriteRenderer ufoRenderer;
     public SpriteRenderer mySpriteRenderer;
 
-    float speed = 3f;
+    float speed = 6f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,7 +25,7 @@ public class PlayerShot : MonoBehaviour
         Vector2 newPosition = (Vector2)transform.position + Vector2.up * speed * Time.deltaTime;
         transform.position = newPosition;
 
-        if (player == null || ufoRenderer == null || mySpriteRenderer == null)
+        if (ufo == null || ufoRenderer == null || mySpriteRenderer == null)
             return;
 
         Bounds biggerBounds = ufoRenderer.bounds;
