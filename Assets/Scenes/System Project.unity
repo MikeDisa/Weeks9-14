@@ -234,8 +234,10 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   currentPos: {x: 0, y: 0}
   PlayerShotPrefab: {fileID: 8981275673458550995, guid: b072310e772ea3747bf98096a27c6ea1, type: 3}
+  Shield: {fileID: 554219052}
   ufo: {fileID: 762449318}
   UfoRenderer: {fileID: 762449316}
+  shield: {fileID: 554219055}
 --- !u!114 &395993077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,8 +305,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 554219055}
-        m_TargetAssemblyTypeName: Shieldfunction, Assembly-CSharp
+      - m_Target: {fileID: 395993076}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: OnShield
         m_Mode: 0
         m_Arguments:
@@ -355,8 +357,8 @@ MonoBehaviour:
     m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 554219055}
-        m_TargetAssemblyTypeName: Shieldfunction, Assembly-CSharp
+      - m_Target: {fileID: 395993076}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: OnShield
         m_Mode: 0
         m_Arguments:

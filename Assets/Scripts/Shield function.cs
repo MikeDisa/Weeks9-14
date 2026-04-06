@@ -16,18 +16,18 @@ public class Shieldfunction : MonoBehaviour
         
     }
 
-    public void OnShield(InputAction.CallbackContext context)
-    {
-        if(context.phase == InputActionPhase.Started)
-        {
-            this .gameObject.SetActive(true);
-            player.block = 0;
-        }
+    //public void OnShield(InputAction.CallbackContext context)
+    //{
+    //    if(context.phase == InputActionPhase.Started)
+    //    {
+    //        this .gameObject.SetActive(true);
+    //        player.block = 0;
+    //    }
 
-        if (context.phase == InputActionPhase.Performed)
-        {
-            player.block = 1;
-            this .gameObject.SetActive(false);
-        }
-    }
+    //    if (context.phase == InputActionPhase.Performed)
+    //    {
+    //        player.block = 1;
+    //        this .gameObject.SetActive(false);
+    //    }
+    //}
 }

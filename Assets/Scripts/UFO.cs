@@ -52,7 +52,7 @@ public class UFO : MonoBehaviour
     {
         if (BulletPrefab == null || player == null || playerRenderer == null)
         {
-            Debug.LogWarning("Projectile prefab or player references missing.");
+            //Debug.LogWarning("Projectile prefab or player references missing.");
             return;
         }
         float randomX = UnityEngine.Random.Range(-11f, 11f);
@@ -74,8 +74,8 @@ public class UFO : MonoBehaviour
         while (gameOn)
         {
             SpawnProjectile();
-            Debug.Log("Spawn Pos X"+ playerRenderer.bounds.center.x);
-            Debug.Log("Player Pos X"+ playerRenderer.transform.position.x);
+           // Debug.Log("Spawn Pos X"+ playerRenderer.bounds.center.x);
+            //Debug.Log("Player Pos X"+ playerRenderer.transform.position.x);
             yield return new WaitForSeconds(3);
         }
     }
@@ -84,7 +84,7 @@ public class UFO : MonoBehaviour
     {
         if (MissilePrefab == null || player == null || playerRenderer == null)
         {
-            Debug.LogWarning("Missile prefab or player references missing.");
+            //Debug.LogWarning("Missile prefab or player references missing.");
             return;
         }
 

@@ -13,8 +13,11 @@ public class Player : MonoBehaviour
     public Vector2 currentPos;
 
     public GameObject PlayerShotPrefab;
+    public GameObject Shield;
     public UFO ufo;
     public SpriteRenderer UfoRenderer;
+
+    public Shieldfunction shield;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,7 +54,7 @@ public class Player : MonoBehaviour
         hitPoints = hitPoints - dmg * block;
         if (hitPoints == 0)
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
         }
     }
 
@@ -61,7 +64,7 @@ public class Player : MonoBehaviour
         {
             if (PlayerShotPrefab == null || ufo == null || UfoRenderer == null)
             {
-                Debug.LogWarning("Projectile prefab or Ufo references missing.");
+                //Debug.LogWarning("Projectile prefab or Ufo references missing.");
                 return;
             }
             Vector2 offset = new Vector2(currentPos.x+1,currentPos.y+3);
@@ -76,6 +79,23 @@ public class Player : MonoBehaviour
                 shotScript.ufoRenderer = UfoRenderer;
 
             }
+        }
+    }
+
+    public void OnShield(InputAction.CallbackContext context)
+    {
+       
+        if (context.performed)
+        { Debug.Log("click" + context.phase);
+            shield.gameObject.SetActive(true);
+            block = 0;
+        }
+
+        if (context.canceled)
+        {
+            Debug.Log("click" + context.phase);
+            block = 1;
+            shield.gameObject.SetActive(false);
         }
     }
 }

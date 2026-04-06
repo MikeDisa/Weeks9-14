@@ -13,9 +13,9 @@ public class Bullet : MonoBehaviour
     {
         mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        Debug.Log("player = " + player);
-        Debug.Log("playerRenderer = " + playerRenderer);
-        Debug.Log("mySpriteRenderer = " + mySpriteRenderer);
+        //Debug.Log("player = " + player);
+        //Debug.Log("playerRenderer = " + playerRenderer);
+        //Debug.Log("mySpriteRenderer = " + mySpriteRenderer);
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
 
         if (mySpriteRenderer.bounds.Intersects(biggerBounds))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             player.DamagePlayer(3);
             Destroy(gameObject);
         }

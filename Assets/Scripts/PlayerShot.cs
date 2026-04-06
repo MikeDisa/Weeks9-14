@@ -14,9 +14,9 @@ public class PlayerShot : MonoBehaviour
     {
         mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        Debug.Log("player = " + player);
-        Debug.Log("playerRenderer = " + ufoRenderer);
-        Debug.Log("mySpriteRenderer = " + mySpriteRenderer);
+        //Debug.Log("player = " + player);
+        //Debug.Log("playerRenderer = " + ufoRenderer);
+        //Debug.Log("mySpriteRenderer = " + mySpriteRenderer);
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class PlayerShot : MonoBehaviour
 
         if (mySpriteRenderer.bounds.Intersects(biggerBounds))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             ufo.DamageEnemy(1);
             Destroy(gameObject);
         }
