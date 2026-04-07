@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class LocalMutltiplayermanager : MonoBehaviour
 {
-    
+    //public AnimationCurve squish;
     public List<Sprite> playerSprites;
     public List<PlayerInput> players;
 

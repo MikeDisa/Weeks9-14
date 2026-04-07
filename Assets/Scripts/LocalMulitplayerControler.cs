@@ -1,13 +1,17 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
 public class LocalMulitplayerControler : MonoBehaviour
 {
+    public AnimationCurve squish;
     public LocalMutltiplayermanager manager;
     public PlayerInput playerInput;
     public Vector2 movementInput;
     public float speed = 5;
+
+    Coroutine Squish;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,8 +38,19 @@ public class LocalMulitplayerControler : MonoBehaviour
             Debug.Log("Player" + playerInput.playerIndex + ": teriyakki");
             manager.PlayerAttacking(playerInput);
         }
+        if (context.canceled)
+        {
+
+        }
     }
 
+    //IEnumerator Squish()
+    //{
+    //    while (transform.localScale.x >= 0.5)
+    //    {
+    //        transform.localscale -= new Vector3 (0.1f,0.1f,0.1f);
+    //    }
+    //}
    
 
 }
