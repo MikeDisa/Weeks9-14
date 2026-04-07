@@ -30,6 +30,9 @@ public class UFO : MonoBehaviour
     {//coroutine that spams projectiles continuously
         StartCoroutine(SpawnBullet());
         StartCoroutine(SpawnMissile());
+
+        //turns off UI element
+        win.SetActive(false);
     }
 
     // Update is called once per frame
