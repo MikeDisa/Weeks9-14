@@ -5,12 +5,15 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    //player hp and shield multiplier
     public int hitPoints = 3;
     public int block = 1;
 
+    //controls player's rate of fire
     public float fireCooldown = 1.5f;
     float nextFireTime = 0f;
 
+    //vector and 
     public float speed = 5;
     public Vector2 movement;
 
