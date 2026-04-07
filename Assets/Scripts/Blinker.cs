@@ -32,6 +32,7 @@ public class Blinker : MonoBehaviour
 
     }
 
+    //does the blinking
     IEnumerator Blinking()
     {
         while (On)
