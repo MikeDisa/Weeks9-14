@@ -10,6 +10,7 @@ public class UFO : MonoBehaviour
 
     public GameObject BulletPrefab;
     public GameObject MissilePrefab;
+    public GameObject win;
     public Player player;
     public SpriteRenderer playerRenderer;
 
@@ -42,6 +43,9 @@ public class UFO : MonoBehaviour
 
             StopCoroutine(SpawnBullet());
             StopCoroutine(SpawnMissile());
+
+            win.gameObject.SetActive(true);
+            this.gameObject.SetActive(false);
         }
         else if (block == 1)
         {

@@ -24,12 +24,15 @@ public class Player : MonoBehaviour
     public UFO ufo;
     public SpriteRenderer UfoRenderer;
 
+    public GameObject lose;
+
     public Shieldfunction shield;
 
     public UnityEvent onAttackEvent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         currentPos = transform.position;
 
         if (onAttackEvent == null)
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
         }
         onAttackEvent.RemoveListener(FireShot);
         onAttackEvent.AddListener(FireShot);
+
+        lose.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,7 +75,9 @@ public class Player : MonoBehaviour
         hitPoints = hitPoints - dmg * block;
         if (hitPoints <= 0)
         {
-            Debug.Log("hit");
+            ufo.gameOn = false;
+            lose.gameObject.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 
